@@ -15,7 +15,10 @@ interface GetAllCitiesResponse {
   data: City[];
 }
 
-// GET /api/v1/cities
+/**
+ * @description Get all cities
+ * @route GET /api/v1/cities
+ */
 export const getAllCities = async (
   req: Request<any>,
   res: Response<GetAllCitiesResponse>
@@ -38,7 +41,11 @@ export const getAllCities = async (
   res.json({ data: cities });
 };
 
-// GET /api/v1/cities/:id
+/**
+ * @description Get a city by ID
+ * @route GET /api/v1/cities/:id
+ * @param id The ID of the city
+ */
 export const getCityById = async (
   req: Request<{ id: string }>,
   res: Response<{ data: City | null }>
@@ -53,7 +60,12 @@ export const getCityById = async (
   res.json({ data: city });
 };
 
-// POST /api/v1/cities
+/**
+ * @description Create a new city
+ * @route POST /api/v1/cities
+ * @param name The name of the city
+ * @param code The code of the city
+ */
 export const createCity = async (
   req: Request<{ name: string; area_code: string }>,
   res: Response<{ data: City }>
@@ -68,7 +80,11 @@ export const createCity = async (
   res.json({ data: city });
 };
 
-// PUT /api/v1/cities/:id
+/**
+ * @description Update a city by ID
+ * @route PUT /api/v1/cities/:id
+ * @param id The ID of the city to update
+ */
 export const updateCity = async (
   req: Request<{ id: any; body: any }>,
   res: Response<{ data: City }>
@@ -83,7 +99,11 @@ export const updateCity = async (
   res.json({ data: city });
 };
 
-// POST /api/v1/cities/:id
+/**
+ * @description Delete a city by ID
+ * @route DELETE /api/v1/cities/:id
+ * @param id The ID of the city to delete
+ */
 export const deleteCity = async (
   req: Request<{ id: any }>,
   res: Response<{ data: City }>

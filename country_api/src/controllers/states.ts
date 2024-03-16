@@ -14,7 +14,10 @@ interface GetAllStateResponse {
   data: State[];
 }
 
-// GET /api/v1/states
+/**
+ * @description Get all states
+ * @route GET /api/v1/states
+ */
 export const getAllStates = async (
   req: Request<any>,
   res: Response<GetAllStateResponse>
@@ -37,7 +40,11 @@ export const getAllStates = async (
   res.json({ data: states });
 };
 
-// GET /api/v1/states/:id
+/**
+ * @description Get a state by ID
+ * @route GET /api/v1/states/:id
+ * @param id The ID of the state
+ */
 export const getStateById = async (
   req: Request<{ id: string }>,
   res: Response<{ data: State | null }>
@@ -52,7 +59,12 @@ export const getStateById = async (
   res.json({ data: state });
 };
 
-// POST /api/v1/states
+/**
+ * @description Create a new state
+ * @route POST /api/v1/states
+ * @param name The name of the state
+ * @param code The code of the state
+ */
 export const createState = async (
   req: Request<{ body: { name: string; code: string } }>,
   res: Response<{ data: State }>
@@ -67,7 +79,11 @@ export const createState = async (
   res.json({ data: state });
 };
 
-// PUT /api/v1/states/:id
+/**
+ * @description Update a state by ID
+ * @route PUT /api/v1/states/:id
+ * @param id The ID of the state to update
+ */
 export const updateState = async (
   req: Request<{ id: string }>,
   res: Response<{ data: State }>
@@ -82,7 +98,11 @@ export const updateState = async (
   res.json({ data: state });
 };
 
-// POST /api/v1/states/:id
+/**
+ * @description Delete a state by ID
+ * @route DELETE /api/v1/states/:id
+ * @param id The ID of the state to delete
+ */
 export const deleteState = async (
   req: Request<{ id: string }>,
   res: Response<{ data: State }>
