@@ -16,17 +16,29 @@ datasource db {
 // Schema here
 
 model State {
-  id        Int      @id @default(autoincrement())
+  id        Int           @id @default(autoincrement())
   name      String
   code      String
-  createdAt DateTime @default(now())
-  updateAt  DateTime @updatedAt
+  cities    CityState[] // Use 'cities' to represent the many-to-many relation
+  createdAt DateTime      @default(now())
+  updateAt  DateTime      @updatedAt
 }
 
 model City {
-  id        Int      @id @default(autoincrement())
+  id        Int           @id @default(autoincrement())
   name      String
   area_code String
-  createdAt DateTime @default(now())
-  updateAt  DateTime @updatedAt
+  states    CityState[] // Use 'states' to represent the many-to-many relation
+  createdAt DateTime      @default(now())
+  updateAt  DateTime      @updatedAt
+}
+
+model CityState {
+  state_id Int
+  city_id  Int
+
+  state State? @relation(fields: [state_id], references: [id])
+  city  City?  @relation(fields: [city_id], references: [id])
+
+  @@id([state_id, city_id]) // Define composite primary key
 }
