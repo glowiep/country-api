@@ -1,3 +1,5 @@
+import prisma from "../db";
+
 export const getAllStates = (req, res) => {}
 export const getStateById = (req, res) => {}
 export const createState = (req, res) => {}
