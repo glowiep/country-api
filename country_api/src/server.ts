@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import stateRouter from './routers/stateRouter'
+import cityRouter from './routers/cityRouter'
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1/states', stateRouter)
+app.use('/api/v1/cities', cityRouter)
 
 
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
