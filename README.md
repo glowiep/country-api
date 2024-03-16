@@ -6,6 +6,7 @@ A simple United States Country API made with Express and Prisma, providing infor
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
+
 This API is structured around three main entities: 
 - states
 - cities
@@ -159,3 +160,5 @@ Or simply browse to http://localhost:3001/api/v1/cities in a browser.
 
 
 🧠 This project was based on <a href="https://github.com/DominicTremblay/w10d3_api/tree/full_demo_with_authentication">Dominic Tremblay's Lighthouse Labs Advanced Topic Lecture</a>.
+
+![Project hours logged](https://img.shields.io/badge/Project_Hours_Logged-10.5_h-blue)
