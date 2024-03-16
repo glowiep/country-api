@@ -62,24 +62,50 @@ export const createState = async (
 };
 
 // PUT /api/v1/states/:id
-export const updateState = async (req: { params: { id: any; }; body: any; }, res: { json: (arg0: { data: { id: number; name: string; code: string; createdAt: Date; updateAt: Date; }; }) => void; }) => {
+export const updateState = async (
+  req: { params: { id: any }; body: any },
+  res: {
+    json: (arg0: {
+      data: {
+        id: number;
+        name: string;
+        code: string;
+        createdAt: Date;
+        updateAt: Date;
+      };
+    }) => void;
+  }
+) => {
   const id = Number(req.params.id);
 
   const state = await prisma.state.update({
-    where: {id},
-    data: req.body
+    where: { id },
+    data: req.body,
   });
 
   res.json({ data: state });
 };
 
 // POST /api/v1/states/:id
-export const deleteState = async (req: { params: { id: any; }; }, res: { json: (arg0: { data: { id: number; name: string; code: string; createdAt: Date; updateAt: Date; }; }) => void; }) => {
+export const deleteState = async (
+  req: { params: { id: any } },
+  res: {
+    json: (arg0: {
+      data: {
+        id: number;
+        name: string;
+        code: string;
+        createdAt: Date;
+        updateAt: Date;
+      };
+    }) => void;
+  }
+) => {
   const id = Number(req.params.id);
 
   const state = await prisma.state.delete({
-    where: {id}
-  })
-  
+    where: { id },
+  });
+
   res.json({ data: state });
 };
