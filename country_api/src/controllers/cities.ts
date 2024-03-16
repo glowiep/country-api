@@ -1,20 +1,24 @@
 // CRUD operations/queries for cities here
 import prisma from "../db";
 
+import { Request, Response } from "express";
+
+interface City {
+  id: number;
+  name: string;
+  area_code: string;
+  createdAt: Date;
+  updateAt: Date;
+}
+
+interface GetAllCitiesResponse {
+  data: City[];
+}
+
 // GET /api/v1/cities
 export const getAllCities = async (
-  req: any,
-  res: {
-    json: (arg0: {
-      data: {
-        id: number;
-        name: string;
-        area_code: string;
-        createdAt: Date;
-        updateAt: Date;
-      }[];
-    }) => void;
-  }
+  req: Request<any>,
+  res: Response<GetAllCitiesResponse>
 ) => {
   const cities = await prisma.city.findMany();
 
@@ -23,18 +27,8 @@ export const getAllCities = async (
 
 // GET /api/v1/cities/:id
 export const getCityById = async (
-  req: { params: { id: string } },
-  res: {
-    json: (arg0: {
-      data: {
-        id: number;
-        name: string;
-        area_code: string;
-        createdAt: Date;
-        updateAt: Date;
-      } | null;
-    }) => void;
-  }
+  req: Request<{ id: string }>,
+  res: Response<{ data: City | null }>
 ) => {
   const id = Number(req.params.id);
   const city = await prisma.city.findUnique({
@@ -48,18 +42,8 @@ export const getCityById = async (
 
 // POST /api/v1/cities
 export const createCity = async (
-  req: { body: { name: string; area_code: string } },
-  res: {
-    json: (arg0: {
-      data: {
-        id: number;
-        name: string;
-        area_code: string;
-        createdAt: Date;
-        updateAt: Date;
-      };
-    }) => void;
-  }
+  req: Request<{ name: string; area_code: string }>,
+  res: Response<{ data: City }>
 ) => {
   const city = await prisma.city.create({
     data: {
@@ -73,18 +57,8 @@ export const createCity = async (
 
 // PUT /api/v1/cities/:id
 export const updateCity = async (
-  req: { params: { id: any }; body: any },
-  res: {
-    json: (arg0: {
-      data: {
-        id: number;
-        name: string;
-        area_code: string;
-        createdAt: Date;
-        updateAt: Date;
-      };
-    }) => void;
-  }
+  req: Request<{ id: any; body: any }>,
+  res: Response<{ data: City }>
 ) => {
   const id = Number(req.params.id);
 
@@ -98,18 +72,8 @@ export const updateCity = async (
 
 // POST /api/v1/cities/:id
 export const deleteCity = async (
-  req: { params: { id: any } },
-  res: {
-    json: (arg0: {
-      data: {
-        id: number;
-        name: string;
-        area_code: string;
-        createdAt: Date;
-        updateAt: Date;
-      };
-    }) => void;
-  }
+  req: Request<{ id: any }>,
+  res: Response<{ data: City }>
 ) => {
   const id = Number(req.params.id);
 

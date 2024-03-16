@@ -1,10 +1,23 @@
 // CRUD operations/queries for states here
 import prisma from "../db";
+import { Request, Response } from "express";
+
+interface State {
+  id: number;
+  name: string;
+  code: string;
+  createdAt: Date;
+  updateAt: Date;
+}
+
+interface GetAllStateResponse {
+  data: State[];
+}
 
 // GET /api/v1/states
 export const getAllStates = async (
-  req: any,
-  res: { json: (arg: { data: any[] }) => void }
+  req: Request<any>,
+  res: Response<GetAllStateResponse>
 ) => {
   const states = await prisma.state.findMany();
 
@@ -13,18 +26,8 @@ export const getAllStates = async (
 
 // GET /api/v1/states/:id
 export const getStateById = async (
-  req: { params: { id: number } },
-  res: {
-    json: (arg0: {
-      data: {
-        id: number;
-        name: string;
-        code: string;
-        createdAt: Date;
-        updateAt: Date;
-      } | null;
-    }) => void;
-  }
+  req: Request<{ id: string }>,
+  res: Response<{ data: State | null }>
 ) => {
   const id = Number(req.params.id);
   const state = await prisma.state.findUnique({
@@ -38,18 +41,8 @@ export const getStateById = async (
 
 // POST /api/v1/states
 export const createState = async (
-  req: { body: { name: string; code: string } },
-  res: {
-    json: (arg0: {
-      data: {
-        id: number;
-        name: string;
-        code: string;
-        createdAt: Date;
-        updateAt: Date;
-      };
-    }) => void;
-  }
+  req: Request<{ body: { name: string; code: string } }>,
+  res: Response<{ data: State }>
 ) => {
   const state = await prisma.state.create({
     data: {
@@ -63,18 +56,8 @@ export const createState = async (
 
 // PUT /api/v1/states/:id
 export const updateState = async (
-  req: { params: { id: any }; body: any },
-  res: {
-    json: (arg0: {
-      data: {
-        id: number;
-        name: string;
-        code: string;
-        createdAt: Date;
-        updateAt: Date;
-      };
-    }) => void;
-  }
+  req: Request<{ id: string }>,
+  res: Response<{ data: State }>
 ) => {
   const id = Number(req.params.id);
 
@@ -88,18 +71,8 @@ export const updateState = async (
 
 // POST /api/v1/states/:id
 export const deleteState = async (
-  req: { params: { id: any } },
-  res: {
-    json: (arg0: {
-      data: {
-        id: number;
-        name: string;
-        code: string;
-        createdAt: Date;
-        updateAt: Date;
-      };
-    }) => void;
-  }
+  req: Request<{ id: string }>,
+  res: Response<{ data: State }>
 ) => {
   const id = Number(req.params.id);
 
