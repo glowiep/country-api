@@ -19,7 +19,20 @@ export const getAllStates = async (
   req: Request<any>,
   res: Response<GetAllStateResponse>
 ) => {
-  const states = await prisma.state.findMany();
+  const states = await prisma.state.findMany({
+    include: {
+      cities: {
+        include: {
+          city: {
+            select: {
+              name: true, 
+              area_code: true
+            }
+          }
+        }
+      }
+    }
+  });
 
   res.json({ data: states });
 };
