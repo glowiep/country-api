@@ -45,8 +45,6 @@ I gained hands-on experience integrating TypeScript with Prisma for database ope
   - I learned how TypeScript can help catch errors during development time rather than runtime. This enhances code reliability, reduces bugs, and improves overall code quality.
 - Improved Code Readability
   - I learned how to use TypeScript interfaces and types for defining API payloads. 
-- Advanced Language Features
-  - I discovered how to use async/await syntax for asynchronous operations in Express routes and Prisma queries to write cleaner, more maintainable code and leverage modern JavaScript capabilities.
 
 ### 📈 Overall Growth:
 This project increased my understanding in understanding ORM (Object-Relational Mapping) concepts, including object-relational mapping, entity relationships, data abstraction, query generation, and data validation. This helped me gain valuable insights into modern JavaScript development practices, type systems, and tooling.
