@@ -1,5 +1,5 @@
 # 🌎 United States Country API
-A simple United States Country API made with Express and Prisma, providing information on states and cities.
+A simple United States Country API created from scratch which runs on Express, and uses Prisma for database operations. This API provides information on states and cities in United States (mock data).
 
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
