@@ -15,12 +15,12 @@ This API is structured around three main entities:
 ## Goals 🏆
 - Building a simple country API to demonstrate knowledge on:
   - <b>Data Access and Management</b>
-    - Setting up and organizing the backend effectively.
+    - Set up and organize the backend effectively.
     - Implement CRUD (Create, Read, Update, Delete) operations for managing state and city data.
   - <b> Integration and Scalability</b> 
-    - Using TypeScript with Prisma to allow for seamless integration with Express JS.
+    - Use TypeScript with Prisma to allow for seamless integration with Express JS.
   - <b>Documentation and Developer Experience</b> 
-    - Create comprehensive API documentation that outlines endpoints, request/response formats, and usage guidelines.
+    - Apply the principles of ORM in practice and document what I have learned through the process of developing an API from scratch.
 
 ## What I learned 📚
 
