@@ -157,6 +157,8 @@ Or simply browse to http://localhost:3001/api/v1/cities in a browser.
 - [typescript](https://www.npmjs.com/package/typescript): ^5.4.2
 
 
-🧠 This project was based on <a href="https://github.com/DominicTremblay/w10d3_api/tree/full_demo_with_authentication">Dominic Tremblay's Lighthouse Labs Advanced Topic Lecture</a>.
+🧠 This project was based on <a target="_blank"  href="https://github.com/DominicTremblay/w10d3_api/tree/full_demo_with_authentication">Dominic Tremblay's Lighthouse Labs Advanced Topic Lecture</a>.
+
+📖 Read my blog post about <a target="_blank" href="https://dev.to/glowiep/prisma-a-modern-orm-2knh">Prisma - A Modern ORM here</a>.
 
 ![Project hours logged](https://img.shields.io/badge/Project_Hours_Logged-10.5_h-blue)
